@@ -6,7 +6,7 @@ function kelvinToCelsius(kelvin: number): number {
   return Math.floor(kelvin - 273.15);
 }
 async function getData({name} : {name : string}) {
-  const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=5c0df1570193de98d2da5b872e6dbec3`)
+  const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=5c0df1570193de98d2da5b872e6dbec3`,{ next: { revalidate: 900 } })
  
   return res.json()
 }
